@@ -1,0 +1,20 @@
+{
+  "name": "sanvalentin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tsparticles/basic": "^3.9.1",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/preset-stars": "^3.2.0",
+    "animejs": "^4.3.5",
+    "fireworks-js": "^2.10.8"
+  }
+}
