@@ -21,11 +21,11 @@ let noClickCount = 0;
 const dramaticMessages = [
     "¿Me lo juras? TnT",
     "Are u sure? unu",
-    "Mmm, puedes pensarlo mejor... >u<",
+    "mmm, puedes pensarlo mejor... >u<",
     "ok, entiendo. TnT",
-    "mmmyaaa. TwT",
+    "TwT",
     "ps cada quién. unu",
-    "Buuhh... TnT",
+    "Ehpipipipi... TnT",
 ];
 
 // Animación inicial de carga
