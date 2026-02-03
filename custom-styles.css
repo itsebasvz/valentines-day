@@ -1,0 +1,574 @@
+/* Estilos adicionales para la invitación de San Valentín */
+
+/* Transiciones entre pantallas */
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    pointer-events: none;
+}
+
+.screen.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10;
+    pointer-events: all;
+}
+
+/* Pantalla principal con flores y pregunta */
+#main-screen {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 50px 0px;
+}
+
+#main-screen .night,
+#main-screen .flowers {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ajustar el body para que no interfiera */
+body {
+    padding: 0 !important;
+}
+
+/* Fondo negro puro */
+#main-screen .night {
+    background: #000000;
+}
+
+/* Overlay de pregunta y botones */
+.question-overlay {
+    position: fixed;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 100;
+    max-width: 90%;
+    opacity: 0;
+    animation: fadeInQuestion 1s ease 5s forwards;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes fadeInQuestion {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.question-text {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+.kaomoji {
+    font-size: 1.8rem;
+    color: #6bf0ff;
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(107, 240, 255, 0.5);
+}
+
+.dramatic-message {
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+    color: #a7ffee;
+    margin-bottom: 1rem;
+    min-height: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-shadow: 0 0 10px rgba(167, 255, 238, 0.3);
+}
+
+.dramatic-message.show {
+    opacity: 1;
+}
+
+.screen.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.screen.fade-out {
+    animation: fadeOut 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.buttons-container {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 80px;
+}
+
+.btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-family: 'Georgia', serif;
+    background: transparent;
+    color: white;
+    transform-origin: center;
+}
+
+.btn-yes {
+    border-color: rgba(107, 240, 255, 0.6);
+    background: rgba(107, 240, 255, 0.15);
+    box-shadow: 0 0 20px rgba(107, 240, 255, 0.2);
+}
+
+.btn-yes:hover {
+    transform: translateY(-2px);
+    background: rgba(107, 240, 255, 0.25);
+    border-color: rgba(107, 240, 255, 0.9);
+    box-shadow: 0 0 30px rgba(107, 240, 255, 0.4);
+}
+
+.btn-no {
+    border-color: rgba(167, 255, 238, 0.4);
+    background: rgba(167, 255, 238, 0.08);
+}
+
+.btn-no:hover {
+    transform: translateY(-2px);
+    background: rgba(167, 255, 238, 0.15);
+    border-color: rgba(167, 255, 238, 0.6);
+}
+
+/* Pantalla de anuncio - ahora es la pantalla final */
+#announcement-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#announcement-screen .night {
+    background: #000000;
+}
+
+.announcement-container {
+    text-align: center;
+    z-index: 100;
+    animation: fadeInScale 0.8s ease forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    background: transparent;
+    padding: 3rem 4rem;
+    max-width: 90%;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.announcement-text {
+    font-family: 'Georgia', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 0.3rem 0;
+    letter-spacing: 0.5px;
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.95),
+        0 0 20px rgba(0, 0, 0, 0.8);
+    line-height: 1.3;
+    padding: 0.6rem 1.2rem;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.announcement-text .letter {
+    display: inline-block;
+    transform-origin: center;
+}
+
+.adventure-description {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.5;
+    max-width: 450px;
+    margin: 0.3rem auto;
+    text-align: center;
+    text-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.95),
+        0 0 15px rgba(0, 0, 0, 0.7);
+    padding: 0.8rem 1.2rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+}
+
+.first-clue {
+    font-family: 'Georgia', serif;
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: #6bf0ff;
+    margin: 0.3rem 0 0.3rem 0;
+    text-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.95),
+        0 0 12px rgba(107, 240, 255, 0.4);
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.signature {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    color: #a7ffee;
+    text-align: center;
+    margin: 0.3rem 0 0.3rem 0;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    font-style: italic;
+    display: inline-block;
+}
+
+.btn-ready {
+    padding: 0.7rem 2.2rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    border: 1.5px solid rgba(107, 240, 255, 0.6);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    background: rgba(107, 240, 255, 0.12);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(107, 240, 255, 0.2);
+    margin-top: 0.3rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-ready:hover {
+    transform: translateY(-2px);
+    background: rgba(107, 240, 255, 0.2);
+    border-color: rgba(107, 240, 255, 0.8);
+    box-shadow: 0 0 25px rgba(107, 240, 255, 0.35);
+    backdrop-filter: blur(12px);
+}
+
+.announcement-art {
+    font-family: monospace;
+    font-size: 0.65rem;
+    line-height: 0.65rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin: 0 0 0.3rem 0;
+    white-space: pre;
+    animation: subtleGlow 4s ease-in-out infinite alternate;
+    text-shadow: 
+        0 1px 6px rgba(0, 0, 0, 0.9),
+        0 0 10px rgba(0, 0, 0, 0.6);
+    padding: 0.8rem 1.2rem;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    display: inline-block;
+    transform: scale(0.9);
+}
+
+@keyframes subtleGlow {
+    from {
+        text-shadow: 
+            0 1px 6px rgba(0, 0, 0, 0.9),
+            0 0 10px rgba(0, 0, 0, 0.6);
+    }
+    to {
+        text-shadow: 
+            0 1px 6px rgba(0, 0, 0, 0.9),
+            0 0 10px rgba(0, 0, 0, 0.6),
+            0 0 3px rgba(255, 255, 255, 0.3);
+    }
+}
+
+#tsparticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 40;
+    pointer-events: none;
+}
+
+#confetti-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    pointer-events: none;
+}
+
+#announcement-fireworks-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 40;
+    pointer-events: none;
+    display: none; /* Ocultado */
+}
+
+/* Pantalla de aventura */
+#adventure-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#adventure-screen .night {
+    background: #000000;
+}
+
+/* Firefly particles background */
+#tsparticles-firefly {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Loader Container */
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 50;
+}
+
+/* Wrapper para círculo + porcentaje */
+.progress-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* SVG Circular Progress */
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+    filter: drop-shadow(0 0 20px rgba(107, 240, 255, 0.4));
+}
+
+.progress-ring-circle-bg {
+    fill: none;
+    stroke: rgba(107, 240, 255, 0.1);
+    stroke-linecap: round;
+}
+
+.progress-ring-circle {
+    fill: none;
+    stroke: #6bf0ff;
+    stroke-linecap: round;
+    stroke-dasharray: 502.65; /* 2 * PI * 80 (radio) */
+    stroke-dashoffset: 502.65;
+    transition: stroke-dashoffset 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(107, 240, 255, 0.6));
+}
+
+/* Porcentaje en el centro */
+.progress-percentage {
+    position: relative;
+    z-index: 51;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #6bf0ff;
+    font-family: 'Georgia', serif;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(107, 240, 255, 0.5);
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mensaje de carga */
+.loading-message {
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    color: #a7ffee;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    max-width: 600px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 8px rgba(167, 255, 238, 0.3);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.loading-message.fade {
+    opacity: 0;
+}
+
+/* Pantalla de respuesta */
+#answer-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.stars-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('mapaestrellas.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.7);
+}
+
+.answer-container {
+    position: relative;
+    z-index: 50;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    max-width: 80%;
+}
+
+.answer-text {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #fff;
+    margin: 1rem 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    line-height: 1.6;
+}
+
+.love-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .question-text {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+    
+    .answer-text {
+        font-size: 1.5rem;
+    }
+    
+    .love-text {
+        font-size: 2rem;
+    }
+    
+    .buttons-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
